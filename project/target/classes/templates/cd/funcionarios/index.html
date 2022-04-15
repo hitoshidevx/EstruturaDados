@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Sistema de Gestão dos Funcionários</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container my-2">
+		<a th:href="@{/cd/funcionarios/novo}" class="btn btn-primary btn-sm mb-3">Incluir Funcionário</a>
+		<h1>Funcionários</h1>
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Telefone</th>
+					<th>Email</th>
+					<th>Cidade</th>
+					<th>Codigo</th>
+					<th>Departamento</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="funcionario : ${listaFuncionarios}">
+					<td th:text="${funcionario.nome}"></td>
+					<td th:text="${funcionario.telefone}"></td>
+					<td th:text="${funcionario.email}"></td>
+					<td th:text="${funcionario.cidade.nome}"></td>
+					<td th:text="${funcionario.cidade.codigo}"></td>
+					<td th:text="${funcionario.departamento.nome}"></td>
+					<td>
+						<a th:href="@{/cd/funcionarios/{id}(id=${funcionario.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/cd/funcionarios/excluir/{id}(id=${funcionario.id})}" class="btn btn-danger">Excluir</a>				
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/cd/cidades}" class="btn btn-primary btn-sm mb-3">Visualizar Cidades</a>
+		<a th:href="@{/cd/departamentos}" class="btn btn-primary btn-sm mb-3">Visualizar Departamentos</a>
+	</div>
+</body>
+</html>

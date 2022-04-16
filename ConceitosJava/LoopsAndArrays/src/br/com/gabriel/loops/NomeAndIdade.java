@@ -12,7 +12,16 @@ public class NomeAndIdade {
 		String nome;
 		int idade;
 		
-		int data;
+		while(true) {
+			System.out.println("Insira seu nome: ");
+			nome = sc.next();
+			if (nome.equals("0")) break;
+			
+			System.out.println("Insira sua idade: ");
+			idade = sc.nextInt();
+		}
+		
+		System.out.println("Continua aqui!");
 		
 	}
 

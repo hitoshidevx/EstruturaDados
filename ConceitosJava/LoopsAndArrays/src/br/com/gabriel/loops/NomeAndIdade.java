@@ -12,6 +12,8 @@ public class NomeAndIdade {
 		String nome;
 		int idade;
 		
+		int data;
+		
 	}
 
 }
